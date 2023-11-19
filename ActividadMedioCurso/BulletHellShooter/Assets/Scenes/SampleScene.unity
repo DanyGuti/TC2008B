@@ -123,6 +123,117 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3376271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3376272}
+  - component: {fileID: 3376275}
+  - component: {fileID: 3376274}
+  - component: {fileID: 3376273}
+  m_Layer: 5
+  m_Name: "TipoCoreograf\xEDa"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3376272
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596087839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -536, y: 113}
+  m_SizeDelta: {x: 400, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3376273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5996fbd52ee14b08baf66a5988f0681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coreographyType: {fileID: 3376274}
+--- !u!114 &3376274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Tipo coreograf\xEDa:"
+--- !u!222 &3376275
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376271}
+  m_CullTransparentMesh: 1
+--- !u!1 &225362130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1446297112782579813, guid: 9ecf15104eac6db478d10ee9693e43eb, type: 3}
+  m_PrefabInstance: {fileID: 1149748591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &225362134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225362130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76daa3a1c5adc4b46b9e7ff35c352fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossShip: {fileID: 225362130}
 --- !u!1 &247095993
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +318,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Tiempo:'
 --- !u!222 &247095997
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -349,6 +460,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -457,6 +569,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f65f0e9f06a411a9ab1a3c243e74da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5996fbd52ee14b08baf66a5988f0681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coreographyType: {fileID: 3376274}
 --- !u!1 &983954377
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +770,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2028996926}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1446297112782579813, guid: 9ecf15104eac6db478d10ee9693e43eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 225362134}
     - targetCorrespondingSourceObject: {fileID: 2153651613328452903, guid: 9ecf15104eac6db478d10ee9693e43eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1185448178}
@@ -842,6 +970,7 @@ RectTransform:
   m_Children:
   - {fileID: 983954378}
   - {fileID: 247095994}
+  - {fileID: 3376272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

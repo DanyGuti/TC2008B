@@ -114,7 +114,7 @@ public class GunRight : MonoBehaviour
         else 
         {
             Vector3 velocity = bulletSpawnPointRight.forward * bulletSpeed;
-            velocity.x += offset; // Add the oscillation to the y component of the velocity
+            velocity.x += offset; // Add the oscillation to the x component of the velocity
 
             bulletRight.GetComponent<Rigidbody>().velocity = velocity;
         }

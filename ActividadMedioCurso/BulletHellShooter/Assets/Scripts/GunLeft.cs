@@ -134,7 +134,7 @@ public class GunLeft : MonoBehaviour
         else 
         {
             Vector3 velocity = bulletSpawnPointLeft.forward * bulletSpeed;
-            velocity.x += offset; // Add the oscillation to the y component of the velocity
+            velocity.x += offset; // Add the oscillation to the x component of the velocity
 
             bulletLeft.GetComponent<Rigidbody>().velocity = velocity;
         }

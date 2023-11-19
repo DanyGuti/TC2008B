@@ -11,22 +11,33 @@ public class BulletRight : MonoBehaviour
     public float life = 2;
     public GunRight gunRight;
 
+    /// <summary>
+    /// Destuir objeto de balas cada 2 segundos
+    /// </summary>
     void Awake()
     {
         Destroy(gameObject, life);
     }
 
+
+    /// <summary>
+    /// Añadir al contador del cañón
+    /// </summary>
+    /// <param name="gun"></param>
     public void SetGunRight(GunRight gun)
     {
         gunRight = gun;
-        gunRight.AddBulletCountRight(); // Increment bullet count in GunRight script
+        gunRight.AddBulletCountRight();
     }
 
+    /// <summary>
+    /// Decrementar contador de balas del cañón
+    /// </summary>
     private void OnDestroy()
     {
         if (gunRight != null)
         {
-            gunRight.DecreaseBulletCountRight(); // Decrement bullet count in GunRight script when the bullet is destroyed
+            gunRight.DecreaseBulletCountRight(); 
         }
     }
 }
