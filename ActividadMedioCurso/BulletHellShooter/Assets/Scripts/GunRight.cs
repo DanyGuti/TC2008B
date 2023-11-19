@@ -40,7 +40,9 @@ public class GunRight : MonoBehaviour
         while(TimeManager.Hour < 10)
         {
             float cosValue = Mathf.Cos(elapsedTime); 
-            float offset = cosValue * 2.5f;
+            float sinValue = Mathf.Sin(elapsedTime); 
+            float offsetY = cosValue * 2.5f;
+            float offsetX = sinValue * 2.5f;
 
             if (TimeManager.Minute < 10)
             {
@@ -48,11 +50,14 @@ public class GunRight : MonoBehaviour
             }
             else if (TimeManager.Minute >= 10 && TimeManager.Minute < 20)
             {
-                ShootBulletFlowerWithOffset(offset, -1);
+                ShootBulletFlowerWithOffset(offsetY, -1, offsetX, offsetY);
             }
             else if (TimeManager.Minute >= 20 && TimeManager.Minute < 30)
             {
-                ShootBulletFlowerWithOffset(-offset, 1);
+                float infinityForm = (Mathf.Sin(elapsedTime) * Mathf.Cos(elapsedTime)) * 2.5f;
+                offsetY = (Mathf.Cos(elapsedTime) * Mathf.Sin(elapsedTime)) * 2.5f;
+                float offsetZ = Mathf.Cos(elapsedTime);
+                ShootBulletFlowerWithOffset(-infinityForm, 1, -offsetY, offsetZ);
             }
             else {
                 ShootBulletForward();
@@ -99,7 +104,7 @@ public class GunRight : MonoBehaviour
     /// Shoot the bullet upwards and downards with sinoidal function
     /// </summary>
     /// <param name="offset"></param>
-    private void ShootBulletFlowerWithOffset(float offset, int direction)
+    private void ShootBulletFlowerWithOffset(float offsetY, int direction, float offsetX, float offsetZ)
     {
         var bulletRight = Instantiate(bulletPrefab, bulletSpawnPointRight.position, bulletSpawnPointRight.rotation);
         bulletRight.GetComponent<BulletRight>().SetGunRight(this);
@@ -107,14 +112,16 @@ public class GunRight : MonoBehaviour
         if (direction == -1)
         {
             Vector3 velocity = bulletSpawnPointRight.forward * bulletSpeed;
-            velocity.y += offset; // Add the oscillation to the y component of the velocity
+            velocity.y += offsetY; // Add the oscillation to the y component of the velocity
 
             bulletRight.GetComponent<Rigidbody>().velocity = velocity;
         }
         else 
         {
             Vector3 velocity = bulletSpawnPointRight.forward * bulletSpeed;
-            velocity.x += offset; // Add the oscillation to the x component of the velocity
+            velocity.x += offsetX; // Add the oscillation to the x component of the velocity
+            velocity.y += offsetY;
+            velocity.z += offsetZ * 1.0f;
 
             bulletRight.GetComponent<Rigidbody>().velocity = velocity;
         }

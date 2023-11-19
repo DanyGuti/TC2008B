@@ -33,7 +33,7 @@ public class CoreographyUI : MonoBehaviour
         }
         else if (TimeManager.Minute >= 20 && TimeManager.Minute < 30)
         {
-            coreographyType.text = "Disparo sinoidal eje x";
+            coreographyType.text = "Disparo figura de infinito";
         }
         else
         {

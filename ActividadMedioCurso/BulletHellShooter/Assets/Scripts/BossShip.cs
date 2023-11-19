@@ -12,8 +12,8 @@ public class BossShip : MonoBehaviour
     public GameObject bossShip;
 
     // Función para hacer movimiento senoidal
-    private float amp = 4.5f;
-    private float freq = 3f;
+    private float amp = 0f;
+    private float freq = 0f;
 
     // Pos inicial y rotación inical
     Vector3 initialPosition;
@@ -56,24 +56,24 @@ public class BossShip : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (TimeManager.Minute > 10 && TimeManager.Minute <= 30)
-        {
-            Vector3 newPosition = bossShip.transform.position;
-            newPosition.y = Mathf.Sin(Time.time * freq) * amp ;
-            bossShip.transform.position = newPosition;
-            // Slow down the rotation speed over time
-            rotationSpeed = Mathf.Lerp(rotationSpeed, 0f, 0.3f * Time.deltaTime);
+        // if (TimeManager.Minute > 10 && TimeManager.Minute <= 30)
+        // {
+        //     Vector3 newPosition = bossShip.transform.position;
+        //     newPosition.y = Mathf.Sin(Time.time * freq) * amp ;
+        //     bossShip.transform.position = newPosition;
+        //     // Slow down the rotation speed over time
+        //     rotationSpeed = Mathf.Lerp(rotationSpeed, 0f, 0.3f * Time.deltaTime);
 
-            // Rotate the object around the y-axis by the current rotation speed
-            bossShip.transform.Rotate(0, 0 , rotationSpeed * Time.deltaTime);
-        }
-        if (TimeManager.Minute >= 30)
-        {
-            // Lerp the position towards the initial position gradually
-            bossShip.transform.position = Vector3.Lerp(bossShip.transform.position, initialPosition, 0.4f * Time.deltaTime);
+        //     // Rotate the object around the y-axis by the current rotation speed
+        //     bossShip.transform.Rotate(0, 0 , rotationSpeed * Time.deltaTime);
+        // }
+        // if (TimeManager.Minute >= 30)
+        // {
+        //     // Lerp the position towards the initial position gradually
+        //     bossShip.transform.position = Vector3.Lerp(bossShip.transform.position, initialPosition, 0.4f * Time.deltaTime);
 
-            // Lerp the rotation towards the initial rotation gradually
-            bossShip.transform.rotation = Quaternion.Lerp(bossShip.transform.rotation, initialRotation, 0.4f * Time.deltaTime);
-        }
+        //     // Lerp the rotation towards the initial rotation gradually
+        //     bossShip.transform.rotation = Quaternion.Lerp(bossShip.transform.rotation, initialRotation, 0.4f * Time.deltaTime);
+        // }
     }
 }

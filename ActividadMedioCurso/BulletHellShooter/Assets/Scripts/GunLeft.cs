@@ -42,7 +42,9 @@ public class GunLeft : MonoBehaviour
         while(TimeManager.Hour < 10)
         {
             float sinValue = Mathf.Sin(elapsedTime); 
-            float offset = sinValue * 2.5f;
+            float cosValue = Mathf.Cos(elapsedTime); 
+            float offsetY = sinValue * 2.5f;
+            float offsetX = cosValue * 2.5f;
 
             if (TimeManager.Minute < 10)
             {
@@ -57,21 +59,30 @@ public class GunLeft : MonoBehaviour
                     // Wait for the camera transition
                     appliedCameraChangeYshoot = true;
                 }
-                ShootBulletFlowerWithOffset(offset, -1);
+                ShootBulletFlowerWithOffset(offsetY, -1, offsetX, offsetX);
             }
             else if (TimeManager.Minute >= 20 && TimeManager.Minute < 30)
             {
+                float infinityForm = (Mathf.Sin(elapsedTime) * Mathf.Cos(elapsedTime));
+                cosValue = (Mathf.Cos(elapsedTime) * Mathf.Sin(elapsedTime));
+                float offsetZ = Mathf.Sin(elapsedTime);
                 if (!appliedCameraChangeXshoot)
                 {
                     // Transition camera view before shooting flower bullets
-                    StartCoroutine(TransitionCameraView(mainCamera.transform.position, mainCamera.transform.rotation, new Vector3(-2.45f, 5.05f, -13.82f), Quaternion.Euler(7.668f, 17.332f, -3.615f), 2f));
+                    StartCoroutine(TransitionCameraView(mainCamera.transform.position, mainCamera.transform.rotation, new Vector3(7.88f, 4.34f, -15.31f), Quaternion.Euler(10.295f, 1.264f, 1.68f), 2f));
                     // Wait for the camera transition
                     appliedCameraChangeXshoot = true;
                 }
-                ShootBulletFlowerWithOffset(offset, 1);
+                ShootBulletFlowerWithOffset(infinityForm, 1, cosValue, offsetZ);
             }
             else
             {
+                if (!appliedCameraChangeXshoot && ! appliedCameraChangeYshoot)
+                {
+                    // Transition camera view before shooting flower bullets
+                    StartCoroutine(TransitionCameraView(mainCamera.transform.position, mainCamera.transform.rotation, new Vector3(7.62f, 15.99f, 46.08f), Quaternion.Euler(22.442f, 179.276f, -0.658f), 1.5f));
+                    // Wait for the camera transition
+                }
                 ShootBulletForward();
                 appliedCameraChangeXshoot = false;
                 appliedCameraChangeYshoot = false;
@@ -119,7 +130,7 @@ public class GunLeft : MonoBehaviour
     /// Shoot the bullet upwards and downards with sinoidal function
     /// </summary>
     /// <param name="offset"></param>
-    private void ShootBulletFlowerWithOffset(float offset, int direction)
+    private void ShootBulletFlowerWithOffset(float offsetY, int direction, float offsetX, float offsetZ)
     {
         var bulletLeft = Instantiate(bulletPrefab, bulletSpawnPointLeft.position, bulletSpawnPointLeft.rotation);
         bulletLeft.GetComponent<BulletLeft>().SetGunLeft(this);
@@ -127,14 +138,17 @@ public class GunLeft : MonoBehaviour
         if (direction == -1)
         {
             Vector3 velocity = bulletSpawnPointLeft.forward * bulletSpeed;
-            velocity.y += offset; // Add the oscillation to the y component of the velocity
+            velocity.y += offsetY; // Add the oscillation to the y component of the velocity
 
             bulletLeft.GetComponent<Rigidbody>().velocity = velocity;
         }
         else 
         {
+            
             Vector3 velocity = bulletSpawnPointLeft.forward * bulletSpeed;
-            velocity.x += offset; // Add the oscillation to the x component of the velocity
+            velocity.y += offsetY * 4.5f;
+            velocity.x += offsetX * 4.5f;
+            velocity.z += offsetZ * 1.0f;
 
             bulletLeft.GetComponent<Rigidbody>().velocity = velocity;
         }
