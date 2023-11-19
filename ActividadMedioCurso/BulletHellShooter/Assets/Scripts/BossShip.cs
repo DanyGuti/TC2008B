@@ -8,13 +8,23 @@ using UnityEngine;
 /// </summary>
 public class BossShip : MonoBehaviour
 {
+    // Objeto de nave
     public GameObject bossShip;
+
+    // Función para hacer movimiento senoidal
     private float amp = 4.5f;
     private float freq = 3f;
+
+    // Pos inicial y rotación inical
     Vector3 initialPosition;
     Quaternion initialRotation;
 
-    private float rotationSpeed = 360f; // Adjust the initial rotation speed
+    // Velocidad de rotación
+    private float rotationSpeed = 360f; 
+
+    /// <summary>
+    /// Iniciar posición y rotación actual y corrutina
+    /// </summary>
     void Start()
     {
         initialPosition = bossShip.transform.position;
@@ -22,6 +32,9 @@ public class BossShip : MonoBehaviour
         StartCoroutine(RotateObject());
     }
 
+    /// <summary>
+    /// Corrutina para rotar nave espacial
+    /// </summary>
     IEnumerator RotateObject()
     {
         float elapsedTime = 0f;
@@ -38,6 +51,9 @@ public class BossShip : MonoBehaviour
         bossShip.transform.rotation = Quaternion.Euler(0, 360, 0);
     }
 
+    /// <summary>
+    /// Manejar los tiempos apra hacer animaciones de rotación de la nave
+    /// </summary>
     void Update()
     {
         if (TimeManager.Minute > 10 && TimeManager.Minute <= 30)
